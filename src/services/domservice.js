@@ -8,4 +8,4 @@ export const HOME_PAGE_link = document.getElementById("abut_home_link");
 export const ABUT_PAGE_link = document.getElementById("abut_page_link");
 export const CREAT_PIC_link = document.getElementById("creat_pic_link");
 export const SIGNUP_PAGE_LINK = document.getElementById("signup-page-link");
-export const LOGIN_PAGE_LINK = document.getElementById("login-page-link");
+export const LOGIN_PAGE_LINK = document.getElementById("logi-page-link");
