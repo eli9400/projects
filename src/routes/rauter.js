@@ -1,4 +1,4 @@
-import PAGES from "../services/pagemodels.js";
+import PAGES from "./pagemodels.js";
 import {
   HOME_PAGE,
   ABUT_PAGE,

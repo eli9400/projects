@@ -1,4 +1,4 @@
-import PAGES from "../services/pagemodels.js";
+import PAGES from "./pagemodels.js";
 import { onchangepage } from "./rauter.js";
 import {
   HOME_PAGE_link,

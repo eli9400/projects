@@ -10,4 +10,5 @@ const setCounter = (Array, counter, controller = "") => {
   }
   return 0;
 };
+
 export default setCounter;

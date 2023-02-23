@@ -26,7 +26,7 @@
       integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
       crossorigin="anonymous"
     ></script>
-    <script src="../src/index.js" type="module"></script>
+    <script src="../src/app.js" type="module"></script>
 
     <title>slideshow app</title>
   </head>
@@ -102,58 +102,43 @@
               <h1 class="display-4">HOME PAGE</h1>
               <h2 class="fs-5">here you can look at your picture...</h2>
               <hr />
+              <div id="slider-container">
+                <div class="center">
+                  <div class="col-12 col-md-10 col-xl-8">
+                    <figure>
+                      <img
+                        id="slider-image"
+                        src=""
+                        alt="..."
+                        class="slide-show-img bg-dark p-2"
+                      />
+                      <figcaption>
+                        Photographed by:
+                        <span id="slider-credits">Michel Jordan</span>
+                      </figcaption>
+                    </figure>
+                  </div>
+                </div>
+
+                <div class="center mb-2">
+                  <div
+                    class="d-flex justify-content-between col-8 col-md-6 col-xl-4"
+                  >
+                    <div id="slider-prev-btn" class="btn btn-outline-dark mx-2">
+                      Prev
+                    </div>
+                    <div id="slider-next-btn" class="btn btn-outline-dark mx-2">
+                      Next
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <p>home page content</p>
         </div>
       </div>
-      <!-- the slide show -->
-     <!--  <div id="slider-container">
-        <div class="center">
-          <div class="col-12 col-md-10 col-xl-8">
-            <figure>
-              <img
-                id="slider-image"
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Burchell%27s_Zebra_%28Etosha%29.jpg/800px-Burchell%27s_Zebra_%28Etosha%29.jpg"
-                alt="cat"
-                class="slide-show-img bg-dark p-2"
-              />
-              <figcaption>
-                photographed by: <span id="dlider-credits"> micel jorden</span>
-              </figcaption>
-            </figure>
-          </div>
-        </div> -->
-        <div id="slider-container">
-          <div class="center">
-            <div class="col-12 col-md-10 col-xl-8">
-              <figure>
-                <img
-                  id="slider-image"
-                  src=""
-                  alt="..."
-                  class="slide-show-img bg-dark p-2"
-                />
-                <figcaption>
-                  Photographed by:
-                  <span id="slider-credits">Michel Jordan</span>
-                </figcaption>
-              </figure>
-            </div>
-          </div>
-
-          <div class="center mb-2">
-            <div class="d-flex justify-content-between col-8 col-md-6 col-xl-4">
-              <div id="slider-prev-btn" class="btn btn-outline-dark mx-2">
-                Prev
-              </div>
-              <div id="slider-next-btn" class="btn btn-outline-dark mx-2">
-                Next
-              </div>
-            </div>
-          </div>
-        </div>
-
+      <div>
         <div id="abut-page" class="d-none">
           <div class="container">
             <div class="center">
