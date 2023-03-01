@@ -1,5 +1,7 @@
 import "./routes/links.js";
 import renderSlider from "./pictures/components/rendeslider.js";
+import picture from "./pictures/models/picture.js";
+import "./users/models/User.js";
 
 window.pictures = [
   {

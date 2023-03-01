@@ -13,3 +13,9 @@ export const makeEveryFirstLetterCapital = (text) => {
 
   return splitText.join(" ");
 };
+export const randomNumBetween = (min, max) => {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+};
+export const chckDuplicateAddress = (address) => {
+  return address;
+};
