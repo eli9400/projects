@@ -1,4 +1,4 @@
-import { randomNumBetween } from "../../utils/alogomethod.js";
+import { generateId } from "../../utils/alogomethod.js";
 
 class picture {
   #id;
@@ -14,7 +14,7 @@ class picture {
     const { url, alt, credits, price, category, user_id } = picture;
     if (!url || !alt || !price || !credits || !user_id)
       throw new Error("bad request! ");
-    this.#id = this.generateId(pictures);
+    this.#id = generateId(pictures, 1_000_000, 9_999_999);
     this.url = url;
     this.alt = alt;
     this.credits = credits;
@@ -23,14 +23,14 @@ class picture {
     this.#user_id = user_id;
     this.#createdAt = new Date();
   }
-  generateId(arrayofPictures) {
+  /*  generateId(arrayofPictures) {
     if (arrayofPictures.length >= 8_999_999)
       throw new Error("max pics in array");
     const randomNumber = randomNumBetween(1_000_000, 9_999_999);
     const pic = arrayofPictures.findIndex((pic) => pic._id === randomNumber);
     if (pic === -1) return randomNumber;
     this.generateId(arrayofPictures);
-  }
+  } */
   get _id() {
     return this.#id;
   }
