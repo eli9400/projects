@@ -1,6 +1,6 @@
 import { generateId } from "../../utils/alogomethod.js";
 
-class picture {
+class Picture {
   #id;
   url;
   alt;
@@ -12,25 +12,20 @@ class picture {
   #user_id;
   constructor(picture, pictures = []) {
     const { url, alt, credits, price, category, user_id } = picture;
+
     if (!url || !alt || !price || !credits || !user_id)
       throw new Error("bad request! ");
+
     this.#id = generateId(pictures, 1_000_000, 9_999_999);
     this.url = url;
     this.alt = alt;
     this.credits = credits;
     this.#price = price;
     this.category = category || "";
-    this.#user_id = user_id;
+    this.#user_id = user_id || "";
     this.#createdAt = new Date();
   }
-  /*  generateId(arrayofPictures) {
-    if (arrayofPictures.length >= 8_999_999)
-      throw new Error("max pics in array");
-    const randomNumber = randomNumBetween(1_000_000, 9_999_999);
-    const pic = arrayofPictures.findIndex((pic) => pic._id === randomNumber);
-    if (pic === -1) return randomNumber;
-    this.generateId(arrayofPictures);
-  } */
+
   get _id() {
     return this.#id;
   }
@@ -43,15 +38,9 @@ class picture {
   get user_id() {
     return this.#user_id;
   }
-
-  /*   set price({ newPrice, user }) {
-    if (user._id !== this.#user_id)
-      throw new Error("only user that made the card can change it's price!");
-    this.#price = newPrice;
-  } */
 }
 
-export default picture;
+export default Picture;
 
 /* try {
   const pic = new picture({

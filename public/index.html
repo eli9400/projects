@@ -95,7 +95,7 @@
       </nav>
     </header>
     <main>
-      <div id="home-page" class="d-block">
+      <div id="home-page" class="d-none">
         <div class="container">
           <div class="center">
             <div class="col-12 col-md-10 col-xl-8">
@@ -151,16 +151,69 @@
             <p>abut page content</p>
           </div>
         </div>
-        <div id="creat-pic" class="d-none">
+        <div id="creat-pic" class="d-block">
           <div class="container">
-            <div class="center">
-              <div class="col-12 col-md-10 col-xl-8">
-                <h1 class="display-4">CREAT PIC</h1>
-                <h2 class="fs-5">here you can creting picture...</h2>
-                <hr />
-              </div>
+            <div class="center" style="height: 87vh">
+              <form
+                class="form p-2 col-12 col-md-6 col-xl-4 border rounded"
+                style="min-width: 280px; max-width: 450"
+              >
+                <h1 class="text-center fs-5">CREATE NEW PICTURE</h1>
+                <div>
+                  <label for="creat-pic-url">image source</label>
+                  <input
+                    id="creat-pic-url"
+                    type="text"
+                    class="form-control mb-2"
+                    name="url"
+                  />
+                  <span class="text-danger" id="creat-pic-url-error"></span>
+                </div>
+                <div>
+                  <label for="creat-pic-alt">image description</label>
+                  <input
+                    id="creat-pic-alt"
+                    type="text"
+                    class="form-control mb-2"
+                    name="alt"
+                  />
+                  <span id="creat-pic-alt-error" class="text-danger"></span>
+                </div>
+                <div>
+                  <label for="creat-pic-credits">image credits</label>
+                  <input
+                    id="creat-pic-credits"
+                    type="text"
+                    class="form-control mb-2"
+                    name="credits"
+                  />
+                  <span id="creat-pic-credits-error" class="text-danger"></span>
+                </div>
+                <div>
+                  <label for="creat-pic-price">price</label>
+                  <input
+                    id="creat-pic-price"
+                    type="number"
+                    class="form-control mb-2"
+                    name="price"
+                  />
+                  <span id="creat-pic-price-error" class="text-danger"></span>
+                  <input
+                    id="creat-pic-cencel-btn"
+                    type="button"
+                    value="cencel"
+                    class="btn btn-secondary col-12 mb-2"
+                  />
+                  <input
+                    id="creat-pic-submit-btn"
+                    type="button"
+                    value="submit"
+                    class="btn btn-primary col-12 mb-2"
+                    disabled
+                  />
+                </div>
+              </form>
             </div>
-            <p>creat pic content</p>
           </div>
         </div>
         <div id="login-page" class="d-none">

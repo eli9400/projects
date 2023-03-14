@@ -14,3 +14,40 @@ export const SLIDER_IMAGE = document.getElementById("slider-image");
 export const SLIDER_CREDITS = document.getElementById("slider-credits");
 export const SLIDER_PREV_BTN = document.getElementById("slider-prev-btn");
 export const SLIDER_NEXT_BTN = document.getElementById("slider-next-btn");
+
+/* create new picture */
+export const CREAT_PIC_URL_FIELD = document.getElementById("creat-pic-url");
+export const CREAT_PIC_URL_EROR = document.getElementById(
+  "creat-pic-url-error"
+);
+
+/* create new picture alt */
+
+export const CREAT_PIC_ALT_FIELD = document.getElementById("creat-pic-alt");
+export const CREAT_PIC_ALT_FIELD_EROR = document.getElementById(
+  "creat-pic-alt-error"
+);
+
+/* create new picture credits */
+
+export const CREAT_PIC_CREDITS_FIELD =
+  document.getElementById("creat-pic-credits");
+export const CREAT_PIC_CREDITS_FIELD_EROR = document.getElementById(
+  "creat-pic-credits-error"
+);
+
+/* create new picture price */
+
+export const CREAT_PIC_PRICE_FIELD = document.getElementById("creat-pic-price");
+export const CREAT_PIC_PRICE_FIELD_EROR = document.getElementById(
+  "creat-pic-price-error"
+);
+
+/* create new picture button */
+
+export const CREAT_PIC_CENCEL_BTN = document.getElementById(
+  "creat-pic-cencel-btn"
+);
+export const CREAT_PIC_SUBMIT_BTN = document.getElementById(
+  "creat-pic-submit-btn"
+);
