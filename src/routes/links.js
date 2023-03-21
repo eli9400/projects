@@ -1,14 +1,34 @@
-import PAGES from "./pagemodels.js";
-import { onchangepage } from "./rauter.js";
+import PAGES from "./pageModel.js";
 import {
-  HOME_PAGE_link,
-  ABUT_PAGE_link,
-  CREAT_PIC_link,
-  SIGNUP_PAGE_LINK,
+  ABOUT_PAGE_LINK,
+  CREATE_PIC_PAGE_LINK,
+  HOME_PAGE_LINK,
   LOGIN_PAGE_LINK,
-} from "../services/domservice.js";
-HOME_PAGE_link.addEventListener("click", () => onchangepage(PAGES.HOME));
-ABUT_PAGE_link.addEventListener("click", () => onchangepage(PAGES.ABUT));
-CREAT_PIC_link.addEventListener("click", () => onchangepage(PAGES.CREAT));
-SIGNUP_PAGE_LINK.addEventListener("click", () => onchangepage(PAGES.SIGNUP));
-LOGIN_PAGE_LINK.addEventListener("click", () => onchangepage(PAGES.LOGIN));
+  RETURN_TO_HOME_PAGE_LINK,
+  SIGNUP_PAGE_LINK,
+} from "../services/domService.js";
+import { onChangePage } from "./router.js";
+import { createPicture } from "./../pictures/services/pictureService.js";
+import { login } from "./../users/services/userService.js";
+import { registerService } from "./../users/services/userService.js";
+
+/********* האזנה לאירועים **********/
+
+// ניתוב דפים
+HOME_PAGE_LINK.addEventListener("click", () => onChangePage(PAGES.HOME));
+ABOUT_PAGE_LINK.addEventListener("click", () => onChangePage(PAGES.ABOUT));
+CREATE_PIC_PAGE_LINK.addEventListener("click", () => {
+  onChangePage(PAGES.CREATE_PIC);
+  createPicture();
+});
+SIGNUP_PAGE_LINK.addEventListener("click", () => {
+  onChangePage(PAGES.SIGNUP);
+  registerService();
+});
+LOGIN_PAGE_LINK.addEventListener("click", () => {
+  onChangePage(PAGES.LOGIN);
+  login();
+});
+RETURN_TO_HOME_PAGE_LINK.addEventListener("click", () =>
+  onChangePage(PAGES.HOME)
+);

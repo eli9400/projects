@@ -15,9 +15,11 @@
 }
 
 main {
-  min-height: 82.5vh;
+  min-height: 87dvh;
 }
-#slider-image {
+
+.slide-show-img {
   width: 100%;
   aspect-ratio: 16/9;
+  object-fit: cover;
 }

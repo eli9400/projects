@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="shortcut icon"
-      href="/public/assets/images/Image20230214135902.png"
+      href="./assets/images/pic-icon.png"
       type="image/x-icon"
     />
     <link
@@ -15,7 +15,7 @@
       integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./style.css" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
@@ -28,15 +28,16 @@
     ></script>
     <script src="../src/app.js" type="module"></script>
 
-    <title>slideshow app</title>
+    <title>SLIDESHOW - app</title>
   </head>
   <body>
     <header>
       <nav class="navbar navbar-expand-md bg-dark" data-bs-theme="dark">
         <div class="container">
-          <span id="abut_home_link" class="navbar-brand cursor">slideshow</span>
+          <span id="home-page-link" class="navbar-brand cursor">Slideshow</span>
+
           <button
-            class="navbar-toggler"
+            class="navbar-toggler collapsed"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarColor01"
@@ -46,46 +47,48 @@
           >
             <i class="bi bi-list"></i>
           </button>
+
           <div
-            class="collapse navbar-collapse d-flex-md justify-content-between"
+            class="navbar-collapse collapse d-flex-md justify-content-between"
             id="navbarColor01"
           >
             <div>
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item cursor">
+              <ul class="navbar-nav mb-2 mb-lg-0">
+                <li class="nav-item">
                   <span
-                    id="abut_page_link"
-                    class="nav-link active"
+                    id="about-page-link"
+                    class="nav-link cursor"
                     aria-current="page"
                     >About</span
                   >
                 </li>
-                <li class="nav-item cursor">
+                <li class="nav-item d-none">
                   <span
-                    id="creat_pic_link"
-                    class="nav-link active"
+                    id="create-pic-link"
+                    class="nav-link cursor"
                     aria-current="page"
-                    >creat pic</span
+                    >Add Pic</span
                   >
                 </li>
               </ul>
             </div>
+
             <div>
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item cursor">
+              <ul class="navbar-nav mb-2 mb-lg-0">
+                <li class="nav-item">
                   <span
                     id="signup-page-link"
-                    class="nav-link active"
+                    class="nav-link cursor"
                     aria-current="page"
-                    >signup</span
+                    >Signup</span
                   >
                 </li>
-                <li class="nav-item cursor">
+                <li class="nav-item">
                   <span
                     id="login-page-link"
-                    class="nav-link active"
+                    class="nav-link cursor"
                     aria-current="page"
-                    >login</span
+                    >Login</span
                   >
                 </li>
               </ul>
@@ -94,168 +97,397 @@
         </div>
       </nav>
     </header>
+
     <main>
-      <div id="home-page" class="d-none">
+      <!-- home page -->
+      <div id="home-page" class="d-block">
+        <div class="container">
+          <!-- home page titles -->
+          <div class="center">
+            <div class="col-12 col-md-10 col-xl-8">
+              <h1 class="display-4 text-center">HOME PAGE</h1>
+              <h2 class="fs-5">Here you can look at your pictures...</h2>
+              <hr />
+            </div>
+          </div>
+
+          <!-- the slideshow -->
+          <div id="slider-container">
+            <div class="center">
+              <div class="col-12 col-md-10 col-xl-8">
+                <figure>
+                  <img
+                    id="slider-image"
+                    src=""
+                    alt="..."
+                    class="slide-show-img bg-dark p-2"
+                  />
+                  <figcaption>
+                    Photographed by:
+                    <span id="slider-credits">...</span>
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+
+            <!-- slider controllers -->
+            <div class="center mb-2">
+              <div>
+                <div id="slider-prev-btn" class="btn btn-outline-dark mx-2">
+                  Prev
+                </div>
+                <div id="slider-next-btn" class="btn btn-outline-dark mx-2">
+                  Next
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- about page -->
+      <div id="about-page" class="d-none">
         <div class="container">
           <div class="center">
             <div class="col-12 col-md-10 col-xl-8">
-              <h1 class="display-4">HOME PAGE</h1>
-              <h2 class="fs-5">here you can look at your picture...</h2>
+              <h1 class="display-4">ABOUT PAGE</h1>
+              <h2 class="fs-5">Here you can look at your pictures...</h2>
               <hr />
-              <div id="slider-container">
-                <div class="center">
-                  <div class="col-12 col-md-10 col-xl-8">
-                    <figure>
-                      <img
-                        id="slider-image"
-                        src=""
-                        alt="..."
-                        class="slide-show-img bg-dark p-2"
-                      />
-                      <figcaption>
-                        Photographed by:
-                        <span id="slider-credits">Michel Jordan</span>
-                      </figcaption>
-                    </figure>
-                  </div>
-                </div>
-
-                <div class="center mb-2">
-                  <div
-                    class="d-flex justify-content-between col-8 col-md-6 col-xl-4"
-                  >
-                    <div id="slider-prev-btn" class="btn btn-outline-dark mx-2">
-                      Prev
-                    </div>
-                    <div id="slider-next-btn" class="btn btn-outline-dark mx-2">
-                      Next
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
-          <p>home page content</p>
+
+          <p>about page content</p>
         </div>
       </div>
-      <div>
-        <div id="abut-page" class="d-none">
-          <div class="container">
-            <div class="center">
-              <div class="col-12 col-md-10 col-xl-8">
-                <h1 class="display-4">ABUT PAGE</h1>
-                <h2 class="fs-5">here you can look at your picture...</h2>
-                <hr />
+
+      <!-- create pic page -->
+      <div id="create-pic-page" class="d-none">
+        <div class="container">
+          <div class="center" style="height: 87vh">
+            <form
+              class="form p-2 col-12 col-md-6 col-xl-4 border rounded"
+              style="min-width: 280px"
+            >
+              <h1 class="text-center fs-5">CREATE NEW PICTURE</h1>
+              <div>
+                <label for="create-pic-url">Source</label>
+                <input
+                  id="create-pic-url"
+                  type="text"
+                  class="form-control mb-2"
+                  name="url"
+                  autocomplete="off"
+                />
+                <span id="create-pic-url-error" class="text-danger"></span>
               </div>
-            </div>
-            <p>abut page content</p>
+              <div>
+                <label for="create-pic-alt">Description</label>
+                <input
+                  id="create-pic-alt"
+                  type="text"
+                  class="form-control mb-2"
+                  name="alt"
+                  autocomplete="off"
+                />
+                <span id="create-pic-alt-error" class="text-danger"></span>
+              </div>
+              <div>
+                <label for="create-pic-credits">Credits</label>
+                <input
+                  id="create-pic-credits"
+                  type="text"
+                  class="form-control mb-2"
+                  name="credits"
+                  autocomplete="off"
+                />
+                <span id="create-pic-credits-error" class="text-danger"></span>
+              </div>
+              <div>
+                <label for="create-pic-price">Price</label>
+                <input
+                  id="create-pic-price"
+                  type="number"
+                  class="form-control mb-2"
+                  name="price"
+                  autocomplete="off"
+                />
+                <span id="create-pic-price-error" class="text-danger"></span>
+              </div>
+              <input
+                id="create-pic-cancel-btn"
+                type="button"
+                value="cancel"
+                class="btn btn-secondary col-12 mb-2"
+              />
+              <input
+                id="create-pic-submit-btn"
+                type="button"
+                value="submit"
+                class="btn btn-primary col-12 mb-2"
+                disabled
+              />
+            </form>
           </div>
         </div>
-        <div id="creat-pic" class="d-block">
-          <div class="container">
-            <div class="center" style="height: 87vh">
-              <form
-                class="form p-2 col-12 col-md-6 col-xl-4 border rounded"
-                style="min-width: 280px; max-width: 450"
-              >
-                <h1 class="text-center fs-5">CREATE NEW PICTURE</h1>
-                <div>
-                  <label for="creat-pic-url">image source</label>
+      </div>
+
+      <div id="signup-page" class="d-none">
+        <div class="container">
+          <div class="center" style="height: 87vh">
+            <form class="form p-4 col-12 col-md-10 col-xl-8 rounded border">
+              <div class="row">
+                <h3 class="text-center">REGISTAR</h3>
+
+                <h6>name:</h6>
+                <div class="col">
+                  <label for="first-name-rgister">first name</label>
                   <input
-                    id="creat-pic-url"
+                    id="first-name-rgister"
                     type="text"
                     class="form-control mb-2"
-                    name="url"
+                    name="first"
                   />
-                  <span class="text-danger" id="creat-pic-url-error"></span>
+                  <span
+                    class="text-danger"
+                    id="first-name-rgister-error"
+                  ></span>
                 </div>
-                <div>
-                  <label for="creat-pic-alt">image description</label>
+                <div class="col">
+                  <label for="last-name-rgister">last name</label>
                   <input
-                    id="creat-pic-alt"
+                    id="last-name-rgister"
                     type="text"
                     class="form-control mb-2"
-                    name="alt"
+                    name="last"
                   />
-                  <span id="creat-pic-alt-error" class="text-danger"></span>
+                  <span id="last-name-rgister-error" class="text-danger"></span>
                 </div>
-                <div>
-                  <label for="creat-pic-credits">image credits</label>
+              </div>
+              <div class="row">
+                <h6>address:</h6>
+                <div class="col">
+                  <label for="address-register-cuntry">country</label>
                   <input
-                    id="creat-pic-credits"
+                    id="address-register-cuntry"
                     type="text"
                     class="form-control mb-2"
-                    name="credits"
+                    name="country"
                   />
-                  <span id="creat-pic-credits-error" class="text-danger"></span>
+                  <span
+                    id="address-register-cuntry-error"
+                    class="text-danger"
+                  ></span>
                 </div>
-                <div>
-                  <label for="creat-pic-price">price</label>
+                <div class="col">
+                  <label for="address-register-state">state</label>
                   <input
-                    id="creat-pic-price"
+                    id="address-register-state"
+                    type="text"
+                    class="form-control mb-2"
+                    name="state"
+                  />
+                  <span
+                    id="address-register-state-error"
+                    class="text-danger"
+                  ></span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label for="address-register-city">city</label>
+                  <input
+                    id="address-register-city"
+                    type="text"
+                    class="form-control mb-2"
+                    name="city"
+                  />
+                  <span
+                    id="address-register-city-error"
+                    class="text-danger"
+                  ></span>
+                </div>
+                <div class="col">
+                  <label for="address-register-street">street</label>
+                  <input
+                    id="address-register-street"
+                    type="text"
+                    class="form-control mb-2"
+                    name="street"
+                  />
+                  <span
+                    id="address-register-street-error"
+                    class="text-danger"
+                  ></span>
+                </div>
+                <div class="col">
+                  <label for="address-register-houseNumber">houseNumber</label>
+                  <input
+                    id="address-register-houseNumber"
                     type="number"
                     class="form-control mb-2"
-                    name="price"
+                    name="houseNumber"
                   />
-                  <span id="creat-pic-price-error" class="text-danger"></span>
-                  <input
-                    id="creat-pic-cencel-btn"
-                    type="button"
-                    value="cencel"
-                    class="btn btn-secondary col-12 mb-2"
-                  />
-                  <input
-                    id="creat-pic-submit-btn"
-                    type="button"
-                    value="submit"
-                    class="btn btn-primary col-12 mb-2"
-                    disabled
-                  />
+                  <span
+                    id="address-register-houseNumber-error"
+                    class="text-danger"
+                  ></span>
                 </div>
-              </form>
-            </div>
+                <div class="col">
+                  <label for="address-register-zip">zip</label>
+                  <input
+                    id="address-register-zip"
+                    type="number"
+                    class="form-control mb-2"
+                    name="zip"
+                  />
+                  <span
+                    id="address-register-zip-error"
+                    class="text-danger"
+                  ></span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label for="address-register-phone">phone number</label>
+                  <input
+                    id="address-register-phone"
+                    type="number"
+                    class="form-control mb-2"
+                    name="phone"
+                  />
+                  <span
+                    id="address-register-phone-error"
+                    class="text-danger"
+                  ></span>
+                </div>
+                <div class="col">
+                  <label for="address-register-email">email</label>
+                  <input
+                    id="address-register-email"
+                    type="e"
+                    class="form-control mb-2"
+                    name="email"
+                  />
+                  <span
+                    id="address-register-email-error"
+                    class="text-danger"
+                  ></span>
+                </div>
+                <div class="col">
+                  <label for="address-register-password">password</label>
+                  <input
+                    id="address-register-password"
+                    type="password"
+                    class="form-control mb-2"
+                    name="password"
+                  />
+                  <span
+                    id="address-register-password-error"
+                    class="text-danger"
+                  ></span>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value="business"
+                    id="invalidCheck"
+                    name="isBusiness"
+                    required
+                  />
+                  <label class="form-check-label"> Business client </label>
+                </div>
+              </div>
+              <div>
+                <input
+                  id="register-cencel-btn"
+                  type="button"
+                  value="cencel"
+                  class="btn btn-secondary col-12 mb-2"
+                />
+
+                <input
+                  id="registar-submit-btn"
+                  type="button"
+                  value="sign up"
+                  class="btn btn-primary col-12 mb-2"
+                  disabled
+                />
+              </div>
+            </form>
+          </div>
+          <p>signup content</p>
+        </div>
+      </div>
+
+      <!-- login page -->
+      <div id="login-page" class="d-none">
+        <div class="container">
+          <div class="center" style="min-height: 87vh">
+            <form
+              class="form col-12 col-md-10 col-xl-8 p-2 rounded border"
+              style="max-width: 450px"
+            >
+              <h1 class="text-center fs-5">LOGIN</h1>
+
+              <div>
+                <label for="login-email-field">email</label>
+                <input
+                  class="form-control mb-2"
+                  type="email"
+                  name="email"
+                  id="login-email-field"
+                  autocomplete="off"
+                />
+                <span id="login-email-error" class="text-danger"></span>
+              </div>
+
+              <div>
+                <label for="login-password-field">password</label>
+                <input
+                  class="form-control mb-2"
+                  type="password"
+                  name="password"
+                  id="login-password-field"
+                  autocomplete="off"
+                />
+                <span id="login-password-error" class="text-danger mb-1"></span>
+              </div>
+
+              <input
+                id="login-submit-btn"
+                type="button"
+                value="Submit"
+                class="btn btn-primary col-12 mb-2"
+                disabled
+              />
+            </form>
           </div>
         </div>
-        <div id="login-page" class="d-none">
-          <div class="container">
-            <div class="center">
-              <div class="col-12 col-md-10 col-xl-8">
-                <h1 class="display-4">login page</h1>
-                <h2 class="fs-5">here you can creting picture...</h2>
-                <hr />
-              </div>
+      </div>
+
+      <!-- error 404 page -->
+      <div id="error-404-page" class="d-none">
+        <div class="container">
+          <div class="center">
+            <div class="col-12 col-md-10 col-xl-8">
+              <h1 class="display-4">ERROR 404 PAGE</h1>
+              <h2 class="fs-5">Here you can look at your pictures...</h2>
+              <hr />
             </div>
-            <p>log in content</p>
           </div>
-        </div>
-        <div id="signup-page" class="d-none">
-          <div class="container">
-            <div class="center">
-              <div class="col-12 col-md-10 col-xl-8">
-                <h1 class="display-4">signup page</h1>
-                <h2 class="fs-5">here you can creting picture...</h2>
-                <hr />
-              </div>
-            </div>
-            <p>signup content</p>
-          </div>
-        </div>
-        <div id="eror-page" class="d-none">
-          <div class="container">
-            <div class="center">
-              <div class="col-12 col-md-10 col-xl-8">
-                <h1 class="display-4">EROR-404</h1>
-                <h2 class="fs-5">here you can creting picture...</h2>
-                <hr />
-              </div>
-            </div>
-            <p>creat pic content</p>
-          </div>
+
+          <p id="return-to-home-page-link" class="cursor">
+            Click here to return to the hom page...
+          </p>
         </div>
       </div>
     </main>
+
     <footer class="border-top pt-3 bg-dark center">
-      <p class="text-light">Created by Eli Blechman &copy;</p>
+      <p class="text-light">Created by David Yakin &copy;</p>
     </footer>
   </body>
 </html>

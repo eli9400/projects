@@ -2,9 +2,16 @@
 
 ## code
 
-1. [x] **class User**
+1. [ ] **class User**
 2. [ ] **initial data**
 
 ## reference
 
+[google] "http://www.google.com"
+
 ## links
+
+TODO:
+
+1. לייצר הרשאה שרק משתמש מחובר יוכל ליצור תמונה חדשה
+2.

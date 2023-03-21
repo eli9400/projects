@@ -1,9 +1,7 @@
 import Validation from "./Validation.js";
 
 const useForm = (initialForm, schema, handleSubmit) => {
-  window.data = {};
-  data = initialForm;
-
+  let data = { ...initialForm };
   let errors = {};
 
   /********** validate term **********/
@@ -15,7 +13,7 @@ const useForm = (initialForm, schema, handleSubmit) => {
       return errors.length ? errors[0] : null;
     }
 
-    const { errors } = new Validation(value)[schema[name]]();
+    const { errors } = Validation.validate(value)[schema[name]]();
     return errors.length ? errors[0] : null;
   };
 
@@ -36,16 +34,16 @@ const useForm = (initialForm, schema, handleSubmit) => {
 
   /********** reset form **********/
   const handleReset = () => {
-    data = initialForm;
+    data = { ...initialForm };
     errors = {};
   };
 
   /********** handle button disabled **********/
   const handleDisableSubmitBtn = () => {
     const errorArray = Object.keys(errors);
-    console.log(errorArray);
     const array = Object.keys(data);
     const dataArray = array.filter((key) => !data[key]);
+    console.log(errorArray);
     console.log(dataArray);
     if (dataArray.length || errorArray.length) return true;
     return null;

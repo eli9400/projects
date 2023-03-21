@@ -1,13 +1,16 @@
-const setCounter = (Array, counter, controller = "") => {
-  let newcounter;
+const setCounter = (array, counter, controller = "") => {
+  let newCounter;
+
   if (controller === "next") {
-    newcounter = counter < Array.length - 1 ? counter + 1 : 0;
-    return newcounter;
+    newCounter = counter < array.length - 1 ? counter + 1 : 0;
+    return newCounter;
   }
-  if (controller === "perv") {
-    newcounter = counter > 0 ? counter - 1 : Array.length - 1;
-    return newcounter;
+
+  if (controller === "prev") {
+    newCounter = counter > 0 ? counter - 1 : array.length - 1;
+    return newCounter;
   }
+
   return 0;
 };
 
