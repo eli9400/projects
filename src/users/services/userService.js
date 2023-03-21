@@ -30,6 +30,9 @@ import {
   REGISTER_SUBMIT_BTN,
   REGISTER_CENCEL_BTN,
   CHECK_BUSINESS_BTN,
+  CREATE_PIC_PAGE_LINK,
+  LOGIN_PAGE_LINK,
+  LOGOUT_PAGE_LINK,
 } from "../../services/domService.js";
 import User from "../models/User.js";
 import useForm from "./../../forms/useForm.js";
@@ -54,9 +57,20 @@ export const login = () => {
 
     if (!getUser()) return console.log("not have a users");
     // זיהוי המשתמש במערך המשתמשים
+    const emailUsers = [];
+    for (let i = 0; i < users.length; i++) {
+      emailUsers.push(users[i].email);
+    }
+    console.log(emailUsers);
+    let findUser = emailUsers.findIndex((email) => email === data.email);
+
     const loguser = getUser();
-    console.dir(loguser);
-    /* users.includes(email); */
+
+    if (loguser.password === data.password && findUser !== -1) {
+      CREATE_PIC_PAGE_LINK.className = "nav-link cursor d-block";
+      LOGIN_PAGE_LINK.className = "nav-link cursor d-none";
+      LOGOUT_PAGE_LINK.className = "nav-link cursor d-block";
+    } else return console.log("password not matche");
 
     // אותנתיקציה של הסיסמה שהוזנה עם סיסמת המשתמש
 
@@ -172,7 +186,7 @@ export const registerService = () => {
     const user = new User(data);
     users.push(user);
     const obj = { email, password };
-    setToken(users);
+    setToken(obj);
 
     /* console.log(localStorage); */
     onReset(

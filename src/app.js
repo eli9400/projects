@@ -6,10 +6,11 @@ import initialData from "./initial-data/initialData.js";
 import "./users/services/localStorageService.js";
 
 initialData()
-  .then(data => {
+  .then((data) => {
     window.pictures = data.pictures;
     window.users = data.users;
+
     renderSlider(pictures, 0);
     window.user = null;
   })
-  .catch(error => console.log(error));
+  .catch((error) => console.log(error));
