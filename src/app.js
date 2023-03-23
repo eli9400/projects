@@ -9,7 +9,7 @@ initialData()
   .then((data) => {
     window.pictures = data.pictures;
     window.users = data.users;
-
+    console.log(users);
     renderSlider(pictures, 0);
     window.user = null;
   })

@@ -1,2 +1,2 @@
-# Miel-Kadosh-Slide-Show-app
- Show-app
+# java script vanila
+ java script vanila pruject

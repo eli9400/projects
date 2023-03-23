@@ -1,4 +1,6 @@
 import { onInputChange, onReset } from "../../forms/utils/formMethods.js";
+import PAGES from "../../routes/pageModel.js";
+import { onChangePage } from "../../routes/router.js";
 import {
   LOGIN_EMAIL_FIELD,
   LOGIN_EMAIL_ERROR,
@@ -30,13 +32,13 @@ import {
   REGISTER_SUBMIT_BTN,
   REGISTER_CENCEL_BTN,
   CHECK_BUSINESS_BTN,
-  CREATE_PIC_PAGE_LINK,
+  LOGOUT_LINK,
   LOGIN_PAGE_LINK,
-  LOGOUT_PAGE_LINK,
+  CREATE_PIC_PAGE_LINK,
 } from "../../services/domService.js";
 import User from "../models/User.js";
 import useForm from "./../../forms/useForm.js";
-import { getUser, setToken } from "./localStorageService.js";
+import { getUser, removeToken, setToken } from "./localStorageService.js";
 
 export const login = () => {
   const INITIAL_LOGIN_FORM = {
@@ -54,30 +56,24 @@ export const login = () => {
 
   const handleLoginSubmit = (data) => {
     // זיהוי אם יש משתמשים
+    if (!users) return console.log("not have a users");
+    console.log(users);
 
-    if (!getUser()) return console.log("not have a users");
-    // זיהוי המשתמש במערך המשתמשים
-    const emailUsers = [];
-    for (let i = 0; i < users.length; i++) {
-      emailUsers.push(users[i].email);
-    }
-    console.log(emailUsers);
-    let findUser = emailUsers.findIndex((email) => email === data.email);
+    const user = users.find((user) => user.email === data.email);
+    if (!user) return alert("please signup");
+    if (user.password !== data.password)
+      return alert("please enter valid password");
+    const { _id, isBusiness, isAdmin } = user;
 
-    const loguser = getUser();
-
-    if (loguser.password === data.password && findUser !== -1) {
-      CREATE_PIC_PAGE_LINK.className = "nav-link cursor d-block";
-      LOGIN_PAGE_LINK.className = "nav-link cursor d-none";
-      LOGOUT_PAGE_LINK.className = "nav-link cursor d-block";
-    } else return console.log("password not matche");
-
-    // אותנתיקציה של הסיסמה שהוזנה עם סיסמת המשתמש
-
+    const obgUser = { _id, isBusiness, isAdmin };
+    setToken(obgUser);
+    LOGOUT_LINK.className = "nav-link cursor d-block";
+    LOGIN_PAGE_LINK.className = "nav-link cursor d-none";
+    CREATE_PIC_PAGE_LINK.className = "nav-link cursor d-block";
     // creating token - payload
     // set token in localStorage
     // set global variable user
-
+    // clear form field and errors
     onReset(
       LOGIN_INPUTS_ARRAY,
       LOGIN_ERROR_ARRAY,
@@ -85,6 +81,7 @@ export const login = () => {
       form.handleReset
     );
     // move to home page
+    onChangePage(PAGES.HOME);
   };
 
   const form = useForm(INITIAL_LOGIN_FORM, LOGIN_SCHEMA, handleLoginSubmit);
@@ -185,8 +182,6 @@ export const registerService = () => {
 
     const user = new User(data);
     users.push(user);
-    const obj = { email, password };
-    setToken(obj);
 
     /* console.log(localStorage); */
     onReset(
@@ -309,4 +304,11 @@ export const registerService = () => {
     )
   );
   REGISTER_SUBMIT_BTN.addEventListener("click", reg.onSubmit);
+};
+export const Logout = () => {
+  removeToken();
+  LOGOUT_LINK.className = "nav-link cursor d-none";
+  LOGIN_PAGE_LINK.className = "nav-link cursor d-block";
+  CREATE_PIC_PAGE_LINK.className = "nav-link cursor d-none";
+  onChangePage(PAGES.HOME);
 };

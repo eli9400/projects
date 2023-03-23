@@ -4,12 +4,13 @@ import {
   CREATE_PIC_PAGE_LINK,
   HOME_PAGE_LINK,
   LOGIN_PAGE_LINK,
+  LOGOUT_LINK,
   RETURN_TO_HOME_PAGE_LINK,
   SIGNUP_PAGE_LINK,
 } from "../services/domService.js";
 import { onChangePage } from "./router.js";
 import { createPicture } from "./../pictures/services/pictureService.js";
-import { login } from "./../users/services/userService.js";
+import { login, Logout } from "./../users/services/userService.js";
 import { registerService } from "./../users/services/userService.js";
 
 /********* האזנה לאירועים **********/
@@ -32,3 +33,4 @@ LOGIN_PAGE_LINK.addEventListener("click", () => {
 RETURN_TO_HOME_PAGE_LINK.addEventListener("click", () =>
   onChangePage(PAGES.HOME)
 );
+LOGOUT_LINK.addEventListener("click", () => Logout());

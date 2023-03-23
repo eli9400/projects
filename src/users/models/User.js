@@ -16,6 +16,7 @@ class User {
   constructor(user, users = []) {
     const { address, phone, name, password, email, isAdmin, isBusiness } = user;
     this.#id = generateUniqId(users, 1_000_000, 9_999_999);
+    console.log(name);
 
     this.#name = this.setName(name);
     this.#address = this.checkAddress(address);
@@ -120,6 +121,9 @@ class User {
 
   get _id() {
     return this.#id;
+  }
+  get isBusiness() {
+    return this.#isBusiness;
   }
   get isAdmin() {
     return this.#isAdmin;
