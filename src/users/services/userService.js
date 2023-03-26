@@ -59,11 +59,14 @@ export const login = () => {
     if (!users) return console.log("not have a users");
     console.log(users);
 
-    const user = users.find((user) => user.email === data.email);
-    if (!user) return alert("please signup");
-    if (user.password !== data.password)
+    const userIn = users.find((user) => user.email === data.email);
+
+    if (!userIn) return alert("please signup");
+    if (userIn.password !== data.password)
       return alert("please enter valid password");
-    const { _id, isBusiness, isAdmin } = user;
+    const { _id, isBusiness, isAdmin } = userIn;
+    user = userIn;
+    console.log(user);
 
     const obgUser = { _id, isBusiness, isAdmin };
     setToken(obgUser);
@@ -180,10 +183,11 @@ export const registerService = () => {
     data.address = { state, country, city, street, houseNumber, zip };
     data.name = { first, last };
 
-    const user = new User(data);
-    users.push(user);
+    const newUser = new User(data);
+    users.push(newUser);
+    /*  user.push(newUser); */
+    console.log(users);
 
-    /* console.log(localStorage); */
     onReset(
       REGISTAR_INPUTS_ARRAY,
       REGISTAR_ERRORS_ARRAY,
@@ -311,4 +315,6 @@ export const Logout = () => {
   LOGIN_PAGE_LINK.className = "nav-link cursor d-block";
   CREATE_PIC_PAGE_LINK.className = "nav-link cursor d-none";
   onChangePage(PAGES.HOME);
+  user = getUser();
+  console.log(user);
 };
