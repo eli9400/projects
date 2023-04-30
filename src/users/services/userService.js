@@ -185,8 +185,6 @@ export const registerService = () => {
 
     const newUser = new User(data);
     users.push(newUser);
-    /*  user.push(newUser); */
-    console.log(users);
 
     onReset(
       REGISTAR_INPUTS_ARRAY,
@@ -194,6 +192,7 @@ export const registerService = () => {
       REGISTER_SUBMIT_BTN,
       reg.handleReset
     );
+    onChangePage(PAGES.HOME);
   };
   const reg = useForm(
     INISHIL_REGISTERFORM,

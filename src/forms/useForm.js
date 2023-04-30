@@ -43,8 +43,7 @@ const useForm = (initialForm, schema, handleSubmit) => {
     const errorArray = Object.keys(errors);
     const array = Object.keys(data);
     const dataArray = array.filter((key) => !data[key]);
-    console.log(errorArray);
-    console.log(dataArray);
+
     if (dataArray.length || errorArray.length) return true;
     return null;
   };
